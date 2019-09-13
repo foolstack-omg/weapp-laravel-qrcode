@@ -24,7 +24,8 @@ Route::group([
     Route::group([
     ], function () {
         // 游客可以访问的接口
-
+        Route::post('qrcodes/generate', 'QrcodesController@generate')
+            ->name('api.qrcodes.generate');
 
         // 需要 token 验证的接口
         Route::group(['middleware' => 'auth:api'], function($api) {
